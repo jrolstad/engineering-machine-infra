@@ -27,7 +27,7 @@ jobs:
         uses: hashicorp/setup-terraform@v1
 
       - name: Terraform Init
-        run: terraform init -backend=false
+        run: terraform init -input=false -backend-config="resource_group_name=${{ secrets.TFSTATE_RESOURCE_GROUP }}" -backend-config="storage_account_name=${{ secrets.TFSTATE_STORAGE_ACCOUNT }}" -backend-config="container_name=${{ secrets.TFTSTATE_CONTAINER }}" -backend-config="key=${{ secrets.TFSTATE_FILE }}"
         working-directory: ./tf
 
       - name: Terraform Validate
