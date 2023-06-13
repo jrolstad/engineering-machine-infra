@@ -31,7 +31,10 @@ resource "azurerm_key_vault_access_policy" "secret_reader" {
 
 #------------------ Secret Values -------------------------
 resource "random_pet" "machine_admin" {
-  length = 20
+  length = 1
+  keepers = {
+    name = local.resource_group_name
+  }
 }
 resource "random_password" "machine_admin" {
   length = 20
@@ -39,7 +42,7 @@ resource "random_password" "machine_admin" {
 
 resource "azurerm_key_vault_secret" "machine_admin_password" {
   name         = "machine-admin-name"
-  value        = random_pet.machine_admin
+  value        = random_pet.machine_admin.keepers.name
   key_vault_id = azurerm_key_vault.app.id
 }
 
