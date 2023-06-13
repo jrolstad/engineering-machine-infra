@@ -47,7 +47,7 @@ resource "random_password" "machine_admin" {
 
 resource "azurerm_key_vault_secret" "machine_admin_name" {
   name         = "machine-admin-name"
-  value        = random_pet.machine_admin.keepers.name
+  value        = substr(random_pet.machine_admin.keepers.name,0, 20)
   key_vault_id = azurerm_key_vault.app.id
 }
 
