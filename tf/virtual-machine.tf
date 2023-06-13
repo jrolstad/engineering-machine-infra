@@ -1,7 +1,7 @@
 resource "azurerm_windows_virtual_machine" "primary" {
   name                  = "${var.service_name}-${var.environment}"
-  admin_username        = azurerm_key_vault_secret.machine_admin_name
-  admin_password        = azurerm_key_vault_secret.machine_admin_password
+  admin_username        = azurerm_key_vault_secret.machine_admin_name.value
+  admin_password        = azurerm_key_vault_secret.machine_admin_password.value
   location              = azurerm_resource_group.primary.location
   resource_group_name   = azurerm_resource_group.primary.name
   network_interface_ids = [azurerm_network_interface.primary.id]
