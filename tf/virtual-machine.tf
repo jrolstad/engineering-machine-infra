@@ -5,18 +5,18 @@ resource "azurerm_windows_virtual_machine" "primary" {
   location              = azurerm_resource_group.primary.location
   resource_group_name   = azurerm_resource_group.primary.name
   network_interface_ids = [azurerm_network_interface.primary.id]
-  size                  = "Standard_DS1_v2"
+  size                  = "Standard_D8s_v4"
 
   os_disk {
     name                 = "myOsDisk"
     caching              = "ReadWrite"
-    storage_account_type = "Premium_LRS"
+    storage_account_type = "StandardSSD_LRS"
   }
 
   source_image_reference {
-    publisher = "MicrosoftWindowsServer"
-    offer     = "WindowsServer"
-    sku       = "2022-datacenter-azure-edition"
+    publisher = "MicrosoftWindowsDesktop"
+    offer     = "Windows-11"
+    sku       = "win11-21h2-pro"
     version   = "latest"
   }
 
