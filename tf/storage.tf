@@ -1,5 +1,5 @@
 resource "azurerm_storage_account" "app" {
-  name                     = replace("${var.service_name}app${var.environment}", "-", "")
+  name                     = replace("${var.service_name}${var.environment}", "-", "")
   resource_group_name      = azurerm_resource_group.primary.name
   location                 = azurerm_resource_group.primary.location
   account_tier             = "Standard"
