@@ -35,6 +35,6 @@ resource "azurerm_dev_test_global_vm_shutdown_schedule" "primary" {
   timezone              = "Pacific Standard Time"
 
   notification_settings {
-    enabled         = false
+    enabled = false
   }
 }
