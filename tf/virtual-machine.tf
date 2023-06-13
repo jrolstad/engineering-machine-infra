@@ -1,5 +1,5 @@
 resource "azurerm_windows_virtual_machine" "primary" {
-  name                  = "${var.service_name}-${var.environment}"
+  name                  = var.environment
   admin_username        = azurerm_key_vault_secret.machine_admin_name.value
   admin_password        = azurerm_key_vault_secret.machine_admin_password.value
   location              = azurerm_resource_group.primary.location
