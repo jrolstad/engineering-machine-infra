@@ -45,13 +45,13 @@ resource "random_password" "machine_admin" {
   special          = true
 }
 
-resource "azurerm_key_vault_secret" "machine_admin_password" {
+resource "azurerm_key_vault_secret" "machine_admin_name" {
   name         = "machine-admin-name"
   value        = random_pet.machine_admin.keepers.name
   key_vault_id = azurerm_key_vault.app.id
 }
 
-resource "azurerm_key_vault_secret" "machine_admin_name" {
+resource "azurerm_key_vault_secret" "machine_admin_password" {
   name         = "machine-admin-password"
   value        = random_password.machine_admin.result
   key_vault_id = azurerm_key_vault.app.id
