@@ -1,2 +1,2 @@
 environment         = "joshr"
-region              = ["westus3"]
+region              = ["us-west-3"]
