@@ -8,7 +8,7 @@ resource "azurerm_windows_virtual_machine" "primary" {
   size                  = "Standard_D8s_v4"
 
   os_disk {
-    name                 = "myOsDisk"
+    name                 = "${var.service_name}-${var.environment}"
     caching              = "ReadWrite"
     storage_account_type = "StandardSSD_LRS"
   }
