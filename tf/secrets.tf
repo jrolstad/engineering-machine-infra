@@ -43,7 +43,6 @@ resource "random_password" "machine_admin" {
   min_numeric      = 1
   min_special      = 1
   special          = true
-  override_special = "!@#$%&*()-=+[]{}<>:?."
 }
 
 resource "azurerm_key_vault_secret" "machine_admin_password" {
